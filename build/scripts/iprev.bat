@@ -66,7 +66,7 @@ set CMD_LINE_ARGS=%*
 set CLASSPATH=%APP_HOME%\lib\iprev.jar;%APP_HOME%\lib\itextpdf-5.5.1.jar;%APP_HOME%\lib\postgresql-9.4-1203-jdbc42.jar;%APP_HOME%\lib\jbcrypt-0.3m.jar
 
 @rem Execute iprev
-"%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %IPREV_OPTS%  -classpath "%CLASSPATH%" iprev.sicop.Sicop %CMD_LINE_ARGS%
+"%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %IPREV_OPTS%  -classpath "%CLASSPATH%" iprev.view.Main %CMD_LINE_ARGS%
 
 :end
 @rem End local scope for the variables with windows NT shell
