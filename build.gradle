@@ -1,0 +1,104 @@
+buildscript {
+    ext {
+        getdownDir = 'getdown/'
+        getdownVersion = '1.6.1'
+        appJar = 'iprev.jar'
+    }
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath "net.alchim31.gradle:gradle-getdown-plugin:0.2.0"
+        classpath "com.threerings:getdown:${getdownVersion}"
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'groovy'
+apply plugin: 'application'
+apply plugin: 'eclipse'
+
+compileJava.options.encoding = 'UTF-8'
+
+allprojects {
+    repositories {
+        mavenLocal()
+        jcenter()
+    }
+}
+
+dependencies {
+    compile 'com.itextpdf:itextpdf:5.5.1'
+    compile 'org.postgresql:postgresql:9.4-1203-jdbc42'
+    compile 'org.mindrot:jbcrypt:0.3m'
+}
+
+mainClassName = "iprev.sicop.Sicop"
+
+jar {
+    manifest {
+        attributes 'Main-Class': mainClassName
+    }
+}
+
+//////////// GETDOWN
+
+task getdownCopy (dependsOn: [ 'build' ]) {
+    doLast {
+        delete getdownDir
+        copy {
+            from configurations.runtime
+            into "$getdownDir/lib"
+        }
+        copy {
+            from buildscript.configurations.classpath
+            into "$getdownDir/extras/"
+            include "getdown*.jar"
+            rename { String fname -> fname.replace("-$getdownVersion", '') }
+        }
+        copy {
+            from "${buildDir}/libs/${appJar}"
+            from configurations.runtime
+            into "$getdownDir/lib"
+        }
+        copy {
+            from "resources/"
+            exclude "sicop.properties"
+            into "$getdownDir/resources/"
+            rename { String fname -> fname.replace('-prod', '') }
+        }
+        copy {
+            from "extras/"
+            into "$getdownDir/extras/"
+        }
+    }
+}
+
+task getdownText (dependsOn: [ 'getdownCopy' ]) {
+    doLast {
+        def conf = new File("$getdownDir/getdown.txt")
+        conf.append( "appbase = http://172.16.205.150/apps/sas/\n" )
+        conf.append( "allow_offline = true\n" )
+        conf.append( "ui.name = SAS\n" )
+        conf.append( "class = " + mainClassName + "\n" )
+
+        def resources = fileTree(dir: getdownDir, include: ["resources/", "extras/"])
+        resources.each{ File file ->
+            def f = relativePath(file).replaceAll(getdownDir, '')
+            conf.append( "resource = $f\n" )
+        }
+
+        def libs = fileTree(dir: "$getdownDir/lib/")
+        libs.each{ File file ->
+            def f = relativePath(file).replaceAll(getdownDir, '')
+            conf.append( "code = $f\n" )
+        }
+    }
+}
+
+task getdown (dependsOn: [ 'getdownText' ], type: JavaExec) {
+    classpath = buildscript.configurations.classpath
+    main = 'com.threerings.getdown.tools.Digester'
+    args = [getdownDir]
+}
+
