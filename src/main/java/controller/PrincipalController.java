@@ -57,6 +57,9 @@ public class PrincipalController {
     public VBox mainPane;
 
     @FXML
+    public ToolBar filtroToolBar;
+
+    @FXML
     public Label usuarioLabel, horaLabel;
 
     @FXML
@@ -408,6 +411,14 @@ public class PrincipalController {
             movimentacaoController.gfpag();
         } else if (usrLogin.getSetor().getId()==10) {
             movimentacaoController.presidencia();
+        } else if (usrLogin.getSetor().getId()==3) {
+            movimentacaoController.gerac();
+        } else if (usrLogin.getSetor().getId()==12) {
+            movimentacaoController.gerat();
+        } else if (usrLogin.getSetor().getId()==13) {
+            movimentacaoController.gecad();
+        } else if (usrLogin.getSetor().getId()==2) {
+            movimentacaoController.gerin();
         }
 
         setorStage.setTitle("Cadastrar Atividade");

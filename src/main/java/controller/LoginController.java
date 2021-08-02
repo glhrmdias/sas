@@ -132,6 +132,7 @@ public class LoginController {
             //principalController.editarMenu.setVisible(false);
             principalController.processoMenuItem.setVisible(false);
             principalController.listarMenuItem.setVisible(false);
+            principalController.filtroToolBar.setVisible(false);
         }
 
         //principalController.attTable(getLoggedUser().getSetor());

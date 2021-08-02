@@ -33,7 +33,7 @@ dependencies {
     compile 'org.mindrot:jbcrypt:0.3m'
 }
 
-mainClassName = "iprev.view.Main"
+mainClassName = "view.Main"
 
 jar {
     manifest {

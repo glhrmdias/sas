@@ -1,7 +1,7 @@
 appbase = http://172.16.205.150/apps/sas/
 allow_offline = true
 ui.name = SAS
-class = iprev.view.Main
+class = view.Main
 resource = getdown\extras\getdown.jar
 code = getdown\lib\iprev.jar
 code = getdown\lib\itextpdf-5.5.1.jar
