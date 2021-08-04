@@ -89,8 +89,6 @@ public class MovimentacaoController {
         observacaoTextField.setText(movimentacao.getObervação());
     }
 
-
-
     @FXML
     public void initialize() {
         dataRefDatePicker.setValue(LocalDate.now());
@@ -110,10 +108,10 @@ public class MovimentacaoController {
 
         processoCheckBox.selectedProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue) {
-                processoTextField.setDisable(false);
-            } else {
                 processoTextField.setDisable(true);
                 processoTextField.setText("");
+            } else {
+                processoTextField.setDisable(false);
             }
         });
 
@@ -177,6 +175,16 @@ public class MovimentacaoController {
         fecharButton.getScene().getWindow().hide();
     }
 
+    ObservableList<String> tempo = FXCollections.observableArrayList(
+            "10 minutos", "30 minutos", "1 hora", "3 horas", "5 horas", "7 horas", "Indefinido"
+    );
+
+    ObservableList<String> conclusao = FXCollections.observableArrayList(
+            "Deferido", "Suspenso", "Diligenciado", "Parecer jurídico", "Aguardando análise",
+            "Aguardando compensação", "Compensado", "Criado", "Em análise", "Indeferido", "Incluído",
+            "Alterado", "Bloqueado", "Encaminhado", "Emitido", "Concluído", "Em andamento"
+    );
+
     public void corafi() {
         // Atividades e Assuntos CORAFI
         ObservableList<String> atvCoraf = FXCollections.observableArrayList(
@@ -228,6 +236,7 @@ public class MovimentacaoController {
                 assuntoComboBox.setItems(assCorafi4);
             }
         });
+
     }
 
     public void gecomp() {
@@ -838,16 +847,233 @@ public class MovimentacaoController {
 
     }
 
-    ObservableList<String> tempo = FXCollections.observableArrayList(
-            "10 minutos", "30 minutos", "1 hora", "3 horas", "5 horas", "7 horas", "Indefinido"
-    );
+    public void geafc() {
 
-    ObservableList<String> conclusao = FXCollections.observableArrayList(
-            "Deferido", "Suspenso", "Diligenciado", "Parecer jurídico", "Aguardando análise",
-            "Aguardando compensação", "Compensado", "Criado", "Em análise", "Indeferido", "Incluído",
-            "Alterado", "Bloqueado", "Encaminhado", "Emitido", "Concluído", "Em andamento"
-    );
+    }
 
+    public void geapo() {
+        ObservableList<String> atvGeapo = FXCollections.observableArrayList(
+                "SEADC - Setor de Administração de Contratos",
+                "SECOD - Setor de Compras Diretas",
+                "SEDIA - Setor de Diárias",
+                "SEPAT - Setor de Patrimônio",
+                "SEBEN - Setor de Bens Previdenciários"
+        );
+
+        ObservableList<String> assGeapo1 = FXCollections.observableArrayList(
+                "Autuação processos de pagamentos mensais",
+                "Controle contratos de prestação de serviços",
+                "Execução e encaminhamento pagamentos mensais",
+                "Rotinas no SIGEF (Certificação)",
+                "Rotinas no SIGEF (Demais Assuntos)",
+                "Emissão de corrspondências",
+                "Acompanhamento e controle serviços terceirizados",
+                "Despachos em processo/prestar informações"
+        );
+
+        ObservableList<String> assGeapo2 = FXCollections.observableArrayList(
+                "Autuação processos de compra direta",
+                "Aquisição de meterial permente e consumo",
+                "Rotinas no SIGEF (Certificação)",
+                "Encaminhamento pagamento de compras diretas",
+                "Despachos em processo/prestar informações",
+                "Emissão de corrspondências",
+                "Rotinas no SIGEF (Demais Assuntos)",
+                "Cadastro e baixa de materiais no Almoxarifado",
+                "Atividades do Almoxarigado",
+                "Manutenção de bens móveis"
+        );
+
+        ObservableList<String> assGeapo3 = FXCollections.observableArrayList(
+                "Autuação processos de pagamento de diárias",
+                "Rotinas no SIGEF (Certificação)",
+                "Análise e baixa de prestação de contas",
+                "Publicação de relatórios no DOE",
+                "Emissão de Ordem de Tráfego no GVE",
+                "Controle e acompanhamento dos serviços de transporte"
+        );
+
+        ObservableList<String> assGeapo4 = FXCollections.observableArrayList(
+                "Autuação processos de baixa e acertos patrimoniais",
+                "Emissão de relatórios",
+                "Controle e conferênciade bens",
+                "Inventário anual de bens móveis e almoxarifado"
+        );
+
+        ObservableList<String> assGeapo5 = FXCollections.observableArrayList(
+                "Autuação de processos relativos aos bens previdenciários",
+                "Manutenção de bens imóveis",
+                "Rotinas no SIGEF (Demais Assuntos)",
+                "Controle e pagamento de taxas e tributos",
+                "Cobrança e recebimentos de valores de permissão de uso dos imóveis",
+                "Emissão de relatórios/envio de informações",
+                "Despachos em processo/prestar informações"
+        );
+
+        atividadeComboBox.setItems(atvGeapo);
+        conclusaoComboBox.setItems(conclusao);
+
+        atividadeComboBox.valueProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue == "SEADC - Setor de Administração de Contratos"){
+                assuntoComboBox.setItems(assGeapo1);
+            } else if (newValue == "SECOD - Setor de Compras Diretas"){
+                assuntoComboBox.setItems(assGeapo2);
+            } else if (newValue == "SEDIA - Setor de Diárias"){
+                assuntoComboBox.setItems(assGeapo3);
+            } else if (newValue == "SEPAT - Setor de Patrimônio"){
+                assuntoComboBox.setItems(assGeapo4);
+            } else if (newValue == "SEBEN - Setor de Bens Previdenciários") {
+                assuntoComboBox.setItems(assGeapo5);
+            }
+
+        });
+    }
+
+    public void gepen() {
+        ObservableList<String> atvGepen = FXCollections.observableArrayList(
+                "SETOR DE ATENDIMENTO - SEATE",
+                "SETOR DE ANÁLISE DE PROCESSOS DE PEDIDO DE PENSÃO - SEPEP",
+                "SETOR DE INCLUSÃO E PAGAMENTO - SEIPA",
+                "SETOR DE ATOS LEGAIS - SEATL",
+                "SETOR DE TRANSMISSÃO AO TCE - SETRA",
+                "SETOR DE LEVANTAMENTO DE VALORES PENDENTES - SEVAP",
+                "SETOR DE DEMANDAS JUDICIAIS - SEDJU",
+                "SETOR DE RECÁLCULO - SEREC",
+                "OUTRAS DEMANDAS"
+        );
+
+        ObservableList<String> assGepen1 = FXCollections.observableArrayList(
+                "TRIAGEM DAS DEMANDAS RECEBIDAS PELO SGP-E E POR E-MAIL",
+                "ANÁLISE DA DEMANDA RECEBIDA",
+                "REGISTRO EM PLANILHAS ESPECÍFICAS",
+                "ENCAMINHAMENTO AO SETOR RESPONSÁVEL",
+                "RESPOSTA AOS E-MAILS RECEBIDOS E/OU ENCAMINHAMENTO AO SETOR RESPONSÁVEL, QUANDO FOR O CASO",
+                "ANÁLISE, TRATAMENTO E ENCAMINHAMENTO DOS PROCESSOS DE PEDIDO DE ISENÇÃO DE IMPOSTO DE RENDA E CONTRIBUIÇÃO PREVIDENCIÁRIA",
+                "ENCAMINHAMENTO À GFPAG DOS PROCESSOS DE PEDIDOS DE ISENÇÃO PARA REALIZAÇÃO CÁLCULO E RESTITUIÇÃO AO PENSIONISTA",
+                "EMISSÃO DE SENHA PARA ACESSO AO CONTRACHEQUE PARA OS NOVOS PENSIONISTAS",
+                "ENVIO DE E-MAIL AOS NOVOS PENSIONISTAS COM SENHA E INFORMAÇÕES PARA ACESSO AO CONTRACHEQUE",
+                "ALTERAÇÃO DOS DADOS BANCÁRIOS QUANDO SOLICITADO PELO PENSIONISTA",
+                "CONFERÊNCIA DOS RELATÓRIOS DE ÓBITOS ENVIADOS PELOS CARTÓRIOS PARA IDENTIFCAÇÃO DE PENSIONISTAS FALECIDOS",
+                "SOLICITAÇÃO DE CÓPIA DE CERTIDÃO DE ÓBITO AO CARTÓRIO, QUANDO NECESSÁRIO",
+                "ENVIO DOS TERMOS DE ADESÃO AO SC SAÚDE DOS NOVOS PENSIONISTAS",
+                "ELABORAÇÃO DE DECLARAÇÕES DIVERSAS POR SOLICITAÇÃO DOS PENSIONISTAS E HERDEIROS"
+        );
+
+        ObservableList<String> assGepen2 = FXCollections.observableArrayList(
+                "ANÁLISE DOS PROCESSOS DE PEDIDOS DE PENSÃO",
+                "VERIFICAÇÃO SE HÁ OUTROS DEPENDENTES DO INSTITUIDOR",
+                "ENCAMINHAMENTO À PERÍCIA MÉDICA NOS CASOS DE PEDIDO DE PENSÃO POR INVALIDEZ",
+                "SOLICITAÇÃO DE DILIGÊNCIAS À GERAT PARA A SOLUÇÃO DE PENDÊNCIAS NOS PROCESSOS DE PENSÃO",
+                "ELABORAÇÃO DE DESPACHO E ENCAMINHAMENTO À GECAD QUANDO FOR NECESSÁRIO",
+                "ELBORAÇÃO DE DEMONSTRATIVO FINANCEIRO DA PENSÃO E TERMO DE REGULARIDADE",
+                "ENCAMINHAMENTO AO GABINETE PARA ANÁLISE",
+                "ELABORAÇÃO DE OFÍCIOS PARA COMUNICAR O INDEFERIMENTO DA PENSÃO, QUANDO FOR O CASO"
+        );
+
+        ObservableList<String> assGepen3 = FXCollections.observableArrayList(
+                "CADASTRO DO NOVO PENSIONISTA NO SIGRH",
+                "IMPLANTAÇÃO DA PENSÃO NO SIGRH",
+                "APLICAÇÃO DO REDUTOR NA PENSÃO, QUANDO HÁ ACÚMULO DE BENEFÍCIOS E O VALOR DA PENSÃO É MENOR",
+                "CÁLCULO E LANÇAMENTO DOS VALORES RETROATIVOS DEVIDOS AO PENSIONISTA",
+                "CONFERÊNCIA DOS VALORES DO DEMONSTRATIVO FINANCEIRO E DO CONTRACHEQUE",
+                "REGISTRO EM PLANILHA ESPECÍFICA DOS PROCESSOS DE PENSÃO IMPLANTADOS NO MÊS",
+                "ENVIO DE E-MAIL AO NOVO PENSIONISTA COMUNICANDO O DEFERIMENTO DA PENSÃO",
+                "ENCAMINHAMENTO DE PROCESSOS À GEAFC PARA APLICAR REDUTOR NA APOSENTADORIA DO IPREV, NOS CASOS EM QUE HÁ ACÚMULO DE BENEFÍCIOS E O VALOR DA APOSENTADORIA É MENOR",
+                "ENCAMINHAMENTO DE PROCESSOS À SEATL PARA ELABORAÇÃO DA PORTARIA"
+        );
+
+        ObservableList<String> assGepen4 = FXCollections.observableArrayList(
+                "ELABORAÇÃO E ENVIO DE OFÍCIOS PARA INFORMAR AO RGPS E/OU AOS RPPS'S QUANDO HÁ ACÚMULO DE BENEFÍCIOS",
+                "ELABORAÇÃO DE PORTARIA DAS PENSÕES CONCEDIDAS",
+                "ENCAMINHAMENTO DO PROCESSO À UCI PARA ANÁLISE",
+                "VERIFICAÇÃO E PROVIDÊNCIAS DAS DILIGÊNCIAS DA UCI, QUANDO FOR O CASO",
+                "PUBLICAÇÃO DA PORTARIA NO DIÁRIO OFICIAL DO ESTADO"
+        );
+
+        ObservableList<String> assGepen5 = FXCollections.observableArrayList(
+                "SEPARAÇÃO DOS DOCUMENTOS DAS NOVAS PENSÕES CONCEDIDAS PARA ENVIO AO TCE",
+                "ENVIO DA DOCUMENTAÇÃO E INFORMAÇÕES DA PENSÃO AO TCE"
+        );
+
+        ObservableList<String> assGepen6 = FXCollections.observableArrayList(
+                "BAIXA NO SIGRH DOS PENSIONISTAS FALECIDOS",
+                "LEVANTAMENTO DE VALORES PENDENTES DO PENSIONISTA FALECIDO",
+                "ANÁLISE DA FICHA FINANCEIRA DO PENSIONISTA",
+                "VERIFICAÇÃO DE CONTRACHEQUE GERADO/NÃO GERADO APÓS O ÓBITO",
+                "VERIFICAÇÃO SE HÁ PROCESSOS ATIVOS DE RESTITUIÇÃO AO ERÁRIO E PAGAMENTOS RETROATIVOS",
+                "VERIFICAÇÃO SE HÁ PAGAMENTOS EM CRÉDITOS REJEITADOS",
+                "ENCAMINHAMENTO DE OFÍCIO AO BANCO DO BRASIL SOLICITANDO ESTORNO DE VALORES QUANDO O ÓBITO FOI INFORMADO APÓS FECHAMENTO DA FOLHA",
+                "ANÁLISE DOS PROCESSOS DE PEDIDO DE LEVANTAMENTO DE VALORES PENDENTES DE HERDEIROS",
+                "ENCAMINHAMENTO AOS HERDEIROS DO RESULTADO DO LEVANTAMENTO DE VALORES PENDENTES",
+                "ENCAMINHAMENTO DO PROCESSO À GECAD PARA ANÁLISE DO ALVARÁ/ESCRITURA PÚBLICA DE INVENTÁRIO E LEGALIDADE DO PAGAMENTO",
+                "LANÇAMENTO NO SIGRH DO RESÍDUO DE PENSÃO DEVIDO AO PENSIONISTA APÓS DEFERIMENTO DO PAGAMENTO PELA GECAD E PELO PRESIDENTE",
+                "ENCAMINHAMENTO À GEAFC PARA PAGAMENTO QUANDO O RESÍDUO DE PENSÃO DEVE SER PAGO A MAIS DE UM HERDEIRO",
+                "COMUNICAÇÃO POR E-MAIL AOS HERDEIROS A RESPEITO DO PAGAMENTO"
+        );
+
+        ObservableList<String> assGepen7 = FXCollections.observableArrayList(
+                "ANÁLISE DOS PROCESSOS JUDICIAIS E DILIGÊNCIAS DO TCE",
+                "TRATAMENTO DAS DEMANDAS JUDICIAIS",
+                "ESCLARECIMENTO DE INFORMAÇÕES SOLICITADAS",
+                "ALTERAÇÕES NA PENSÃO NO SIGRH DEMANDADAS POR DECISÕES JUDICIAIS",
+                "TRATAMENTO DAS DILIGÊNCIAS RECEBIDAS DO TCE",
+                "ELABORAÇÃO DE OFÍCIOS PARA ENCAMINHAMENTO AO ÓRGÃO DE ORIGEM DO INSTITUIDOR, QUANDO NECESSÁRIO",
+                "ESCLARECIMENTO DE INFORMAÇÕES SOLICITADAS",
+                "ALTERAÇÕES NA PENSÃO DEMANDADAS PELO TCE"
+        );
+
+        ObservableList<String> assGepen8 = FXCollections.observableArrayList(
+                "ANÁLISE DOS PROCESSOS DE PEDIDOS DE RECÁLCULO E REAUSTE DE PENSÕES",
+                "ELABORAÇÃO DE PLANILHAS DE CÁLCULO",
+                "IMPLANTAÇÃO NO SIGRH DOS REAJUSTES CONCEDIDOS"
+        );
+
+        ObservableList<String> assGepen9 = FXCollections.observableArrayList(
+                "CONFERÊNCIA DA FOLHA ATUAL COMPARANDO COM A FOLHA ANTERIOR",
+                "CONFERÊNCIA DAS NOVAS PENSÕES IMPLANTADAS NO MÊS",
+                "CONFERÊNCIA DOS ÓBITOS REGISTRADOS",
+                "CONFERÊNCIA DE OUTRAS ALTERAÇÕES EFETUADAS NA FOLHA DE PAGAMENTO",
+                "ENVIO À GEAFC DE ARQUIVOS GERADOS DE AUTORIZAÇÃO DA FOLHA DE PAGAMENTO PARA ENVIO AO BANCO DO BRASIL",
+                "VERIFICAÇÃO DOS VALORES REJEITADOS POR ÓBITO OU ALTERAÇÃO DOS DADOS BANCÁRIOS",
+                "EMISSÃO E ENVIO DE RELATÓRIO MENSAL ESPECÍFICO AO TCE/SC",
+                "EMISSÃO E ENVIO DE RELATÓRIO MENSAL ESPECÍFICO AO TJSC",
+                "EMISSÃO E ENVIO DE RELATÓRIO MENSAL ESPECÍFICO AO SINDFAZ",
+                "EMISSÃO E ENVIO DE RELATÓRIO MENSAL ESPECÍFICO AO SCSAÚDE E OUTROS",
+                "INCLUSÃO NO SIGRH DE NOVOS FILIADOS DA APRASC E SINDFAZ PARA DESCONTO EM FOLHA DA MENSALIDADE",
+                "VERIFICAÇÃO E HOMOLOGAÇÃO DE FINALIZAÇÃO DO BENEFÍCIO DOS PENSIONISTAS QUE COMPLETARAM 21 ANOS NO MÊS",
+                "VERIFICAÇÃO E HOMOLOGAÇÃO DE FINALIZAÇÃO DO BENEFÍCIO DOS PENSIONISTAS COM PENSÃO TEMPORÁRIA",
+                "EMISSÃO DE RELATÓRIO MENSAL DOS PENSIONISTAS QUE POSSUEM BLOQUEIO JUDICIAL NA PENSÃO PARA EMISSÃO DE BOLETO E ENVIO À GEAFC PARA QUITAÇÃO",
+                "TRATAMENTO DOS PROCESSOS DE DENÚNCIAS",
+                "TRATAMENTO DAS DEMANDAS ORIUNDAS DA OUVIDORIA"
+        );
+
+        atividadeComboBox.setItems(atvGepen);
+        conclusaoComboBox.setItems(conclusao);
+
+        atividadeComboBox.valueProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue == "SETOR DE ATENDIMENTO - SEATE"){
+                assuntoComboBox.setItems(assGepen1);
+            } else if (newValue == "SETOR DE ANÁLISE DE PROCESSOS DE PEDIDO DE PENSÃO - SEPEP"){
+                assuntoComboBox.setItems(assGepen2);
+            } else if (newValue == "SETOR DE INCLUSÃO E PAGAMENTO - SEIPA"){
+                assuntoComboBox.setItems(assGepen3);
+            } else if (newValue == "SETOR DE ATOS LEGAIS - SEATL"){
+                assuntoComboBox.setItems(assGepen4);
+            } else if (newValue == "SETOR DE TRANSMISSÃO AO TCE - SETRA"){
+                assuntoComboBox.setItems(assGepen5);
+            } else if (newValue == "SETOR DE LEVANTAMENTO DE VALORES PENDENTES - SEVAP"){
+                assuntoComboBox.setItems(assGepen6);
+            } else if (newValue == "SETOR DE DEMANDAS JUDICIAIS - SEDJU"){
+                assuntoComboBox.setItems(assGepen7);
+            } else if (newValue == "SETOR DE RECÁLCULO - SEREC"){
+                assuntoComboBox.setItems(assGepen8);
+            } else if (newValue == "OUTRAS DEMANDAS"){
+                assuntoComboBox.setItems(assGepen9);
+            }
+        });
+
+
+    }
 
     @FXML
     public void cadastrar() {

@@ -2,37 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="03ee2550-9964-4b2f-8a65-c52624dc47a2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileSnapshots.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/fileSnapshots.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/3.3/taskArtifacts/taskArtifacts.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/controller/MovimentacaoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/controller/MovimentacaoController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/controller/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/main/controller/LoginController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/controller/MovimentacaoController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/main/controller/MovimentacaoController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/controller/PrincipalController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/main/controller/PrincipalController$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/controller/PrincipalController$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/main/controller/PrincipalController$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/main/controller/PrincipalController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/main/controller/PrincipalController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/distributions/iprev.zip" beforeDir="false" afterPath="$PROJECT_DIR$/build/distributions/iprev.zip" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/distributions/iprev/bin/iprev" beforeDir="false" afterPath="$PROJECT_DIR$/build/distributions/iprev/bin/iprev" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/distributions/iprev/bin/iprev.bat" beforeDir="false" afterPath="$PROJECT_DIR$/build/distributions/iprev/bin/iprev.bat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/distributions/iprev/lib/iprev.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/distributions/iprev/lib/iprev.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/libs/iprev.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/iprev.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/resources/main/controller/principal.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/build/resources/main/controller/principal.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/scripts/iprev" beforeDir="false" afterPath="$PROJECT_DIR$/build/scripts/iprev" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/scripts/iprev.bat" beforeDir="false" afterPath="$PROJECT_DIR$/build/scripts/iprev.bat" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/tmp/jar/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/build/tmp/jar/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/getdown/digest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/getdown/digest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/getdown/getdown.txt" beforeDir="false" afterPath="$PROJECT_DIR$/getdown/getdown.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/getdown/lib/iprev.jar" beforeDir="false" afterPath="$PROJECT_DIR$/getdown/lib/iprev.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/LoginController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/controller/MovimentacaoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/MovimentacaoController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/PrincipalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/controller/PrincipalController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/controller/principal.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/controller/principal.fxml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

@@ -401,24 +401,28 @@ public class PrincipalController {
         movimentacaoController.setorComboBox.setValue(usrLogin.getSetor());
         movimentacaoController.usrTextField.setText(usrLogin.getNome());
 
-        if (usrLogin.getSetor().getId()==7){
-            movimentacaoController.corafi();
-        } else if (usrLogin.getSetor().getId()==1){
+        if (usrLogin.getSetor().getId()==1){
             movimentacaoController.getig();
+        } else if (usrLogin.getSetor().getId()==2) {
+            movimentacaoController.gerin();
+        } else if (usrLogin.getSetor().getId()==3) {
+            movimentacaoController.gerac();
+        } else if (usrLogin.getSetor().getId()==4) {
+            movimentacaoController.gepen();
+        } else if (usrLogin.getSetor().getId()==6) {
+            movimentacaoController.geapo();
+        } else if (usrLogin.getSetor().getId()==7){
+            movimentacaoController.corafi();
         } else if (usrLogin.getSetor().getId()==8) {
             movimentacaoController.gecomp();
         } else if (usrLogin.getSetor().getId()==9) {
             movimentacaoController.gfpag();
         } else if (usrLogin.getSetor().getId()==10) {
             movimentacaoController.presidencia();
-        } else if (usrLogin.getSetor().getId()==3) {
-            movimentacaoController.gerac();
         } else if (usrLogin.getSetor().getId()==12) {
             movimentacaoController.gerat();
         } else if (usrLogin.getSetor().getId()==13) {
             movimentacaoController.gecad();
-        } else if (usrLogin.getSetor().getId()==2) {
-            movimentacaoController.gerin();
         }
 
         setorStage.setTitle("Cadastrar Atividade");
